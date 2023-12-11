@@ -47,7 +47,7 @@ const Navbar = () => {
       </ul>
     </div>
     <img className="w-10" src={logo} alt="" />
-    <a className=" font-roboto  font-semibold  text-xl md:text-2xl drop-shadow-lg text-[#000000]">MediLab Hospital</a>
+    <a className=" font-roboto  font-semibold  text-xl md:text-2xl drop-shadow-2xl text-[#000000]">MediLab Hospital</a>
   </div>
 
   <div className="navbar-center hidden lg:flex">
