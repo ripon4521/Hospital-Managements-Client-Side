@@ -10,6 +10,10 @@ export default {
         'jost': ['Jost', 'sans-serif'],
 'popins': ['Poppins', 'sans-serif'],
 'roboto': ['Roboto', 'sans-serif']
+      },
+      backgroundImage: {
+        'banner-bg': "url('./public/Banner/Vector.png')",
+        // 'footer-texture': "url('/img/footer-texture.png')",
       }
     },
   },
