@@ -2,7 +2,9 @@ import { NavLink } from "react-router-dom";
 import logo from '../../../../public/Logo/Standard Collection 12.png'
 
 
+
 const Navbar = () => {
+
 
     const navLink = <div className="flex flex-col p-2 md:p-0 lg:flex-row justify-center items-center gap-10 text-[#000000]">
     <NavLink to='/' className={({ isActive }) =>
@@ -36,9 +38,10 @@ const Navbar = () => {
     </div>
 
     return (
-        <div className="navbar px-12  bg-base-100">
+        <div  className="navbar lg:ml-24 z-50   bg-base-100 fixed">
   <div className="navbar-start">
     <div className="dropdown">
+
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </div>
@@ -60,6 +63,7 @@ const Navbar = () => {
     <a className="font-roboto px-5 py-3 rounded-2xl bg-white shadow-lg  font-semibold ">SignIn</a>
     <a className=" font-roboto text-white hidden md:block font-semibold shadow-lg bg-[#9083D5] px-5 py-3 rounded-2xl">Regester</a>
   </div>
+
 </div>
     );
 };
