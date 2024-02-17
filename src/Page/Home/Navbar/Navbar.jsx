@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from '../../../../public/Logo/Standard Collection 12.png'
 
 
@@ -38,8 +38,8 @@ const Navbar = () => {
     </div>
 
     return (
-        <div  className="navbar lg:ml-24 z-50   bg-base-100 fixed">
-  <div className="navbar-start">
+        <div  className="navbar  z-50 bg-base-100   border fixed">
+  <div className="navbar-start  lg:ml-24">
     <div className="dropdown">
 
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,7 +60,7 @@ const Navbar = () => {
   </div>
 
   <div className="navbar-end flex justify-center items-center z-10 gap-5">
-    <a className="font-roboto px-5 py-3 rounded-2xl bg-white shadow-lg  font-semibold ">SignIn</a>
+    <Link to='/login' className="font-roboto px-5 py-3 rounded-2xl bg-white shadow-lg  font-semibold ">SignIn</Link>
     <a className=" font-roboto text-white hidden md:block font-semibold shadow-lg bg-[#9083D5] px-5 py-3 rounded-2xl">Regester</a>
   </div>
 
