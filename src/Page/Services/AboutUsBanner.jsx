@@ -1,10 +1,10 @@
 import Aos from "aos";
 import { useEffect } from "react";
-import bannerImg from '../../../public/login Banner/Other 03.png'
+import bannerImg from '../../../public/Services/Colleagues discussing startup idea - 640x427 1.png'
 import {motion} from 'framer-motion'
 
 import "aos/dist/aos.css";
-const LoginPageBanner = () => {
+const AboutUsBanner = () => {
 
     useEffect(() => {
         Aos.init({ duration: 2000 });
@@ -57,8 +57,8 @@ const LoginPageBanner = () => {
 
       <div   data-aos="fade-left"
           data-aos-offset="300"
-          data-aos-easing="ease-in-sine" className="float-right hidden lg:block relative lg:-mt-[800px] z-10">
-        <img className="w-[700px]" src={bannerImg} alt="" />
+          data-aos-easing="ease-in-sine" className="float-right hidden lg:block relative lg:-mt-[650px] z-10">
+        <img className="w-[800px]" src={bannerImg} alt="" />
       </div>
 
      
@@ -67,4 +67,4 @@ const LoginPageBanner = () => {
     );
 };
 
-export default LoginPageBanner;
+export default AboutUsBanner;

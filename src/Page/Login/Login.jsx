@@ -2,12 +2,19 @@ import { useForm } from "react-hook-form";
 import Banner from "../Home/Home/Banner";
 import LoginPageBanner from "../LoginPageBanner/LoginPageBanner";
 import Aos from "aos";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "aos/dist/aos.css";
 import useAuth from "../../Hooks/useAuth";
+import {motion} from 'framer-motion'
 
 
 const Login = () => {
+
+  const [activeTab, setActiveTab] = useState(0);
+
+  const handleTabClick = (index) => {
+    setActiveTab(index);
+  };
 
   const {createUser} = useAuth()
 
@@ -22,11 +29,16 @@ const Login = () => {
 
 
   const { register, handleSubmit, formState: { errors } } = useForm();
+
+
   const onSubmit = data => {
     console.log(data)
     const email = data.email
     const  password = data.password
-    console.log(email,password);
+    const role = document.getElementById('role').innerText;
+    console.log(role);
+
+  
     createUser(email,password)
     .then(result=>{
       console.log(result);
@@ -56,11 +68,27 @@ const Login = () => {
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-3xl font-roboto text-gray-400 font-bold md:text-5xl">Sign Up</h2>
         <h3 className="font-roboto text-2xl text-gray-400 font-semibold mt-3">Please Sign Up To Continue</h3>
-        <p className="mx-auto mb-12 font-roboto mt-4 max-w-xl text-gray-400">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        <p className="mx-auto mb-12 font-roboto mt-4 max-w-xl text-gray-400 mb-20">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 Lorem Ipsum has been the industry's standard dummy text ever since.</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="mb-4 text-left sm:px-4 md:px-20" name="wf-form-name" method="get">
+      <motion.div   className="float-right -mt-20 rounded-t-2xl     mb-5 bg-gray-200">
+      <div role="tablist" className="tabs tabs-boxed">
+      {['Patient', 'Doctor', 'Admin'].map((tabIndex) => (
+        <a id="role"
+          key={tabIndex}
+          role="tab"
+          className={`tab ${activeTab === tabIndex ? 'tab-active font-roboto font-semibold text-white ' : 'font-roboto font-semibold'}`}
+          onClick={() => handleTabClick(tabIndex)}
+        >
+           {tabIndex}
+        </a>
+      ))}
+    </div>
+      </motion.div>
+
+
         <div className="mb-4 grid grid-cols-2 gap-6">
 
           <div data-aos="fade-right">
@@ -132,13 +160,17 @@ Lorem Ipsum has been the industry's standard dummy text ever since.</p>
      
 
         <label className="mb-1 flex pb-4 font-medium">
-          <input  data-aos="fade-left" type="checkbox" name="checkbox-3" />
-          <span  data-aos="fade-left" className="ml-4 inline-block cursor-pointer text-sm" for="checkbox-3">I agree with the <a href="#" className="font-bold text-[#0b0b1f]">Terms &amp; Conditions</a>
+          <input   type="checkbox" name="checkbox-3" />
+          <span  className="ml-4 inline-block cursor-pointer text-sm" for="checkbox-3">I agree with the <a href="#" className="font-bold text-[#0b0b1f]">Terms &amp; Conditions</a>
           </span>
         </label>
-        <input data-aos="zoom-in" type="Submit" className="px-6 w-56 flex justify-center mx-auto ease-in duration-300 py-2 bg-[#9083D5] text-xl font-roboto font-semibold text-white rounded-xl mt-5">
+        < motion.input  whileHover={{ scale: 1.1,
       
-          </input>
+        boxShadow:"0px 0px 8px rgb(255,255,255)"
+       }}
+    data-aos="zoom-in" type="Submit" className="px-6 w-56 flex justify-center mx-auto ease-in duration-300 py-2 bg-[#9083D5] text-xl font-roboto font-semibold text-white rounded-xl mt-5">
+      
+          </ motion.input>
       </form>
     </div>
   </div>
