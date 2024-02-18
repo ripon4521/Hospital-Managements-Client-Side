@@ -2,7 +2,7 @@
 import bio from '../../../../public/Biography/Vaccination research - 640x541 1.png'
 const Biography = () => {
     return (
-        <div className='flex justify-around items-center mt-40'>
+        <div className='flex justify-center items-center mt-40'>
             <div className=''>
         <img className='w-[972px] h-[678px]' src={bio} alt="" />
             </div>

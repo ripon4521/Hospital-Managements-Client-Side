@@ -6,7 +6,7 @@ import useAuth from "../../../Hooks/useAuth";
 
 const Navbar = () => {
   const {user}=useAuth();
-  console.log(user);
+  // console.log(user);
 
 
     const navLink = <div className="flex flex-col p-2 md:p-0 lg:flex-row justify-center items-center gap-10 text-[#000000]">
@@ -63,7 +63,7 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
     {
-      user?  <h2>User ase</h2>: <div className=" flex justify-center items-center z-10 gap-5">
+      user? <img className="w-12 lg:mr-20" src="https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png"  /> : <div className=" flex justify-center items-center z-10 gap-5">
     
       <Link to='/login' className="font-roboto px-5 py-3 rounded-2xl bg-white shadow-lg  font-semibold ">SignIn</Link>
       <a className=" font-roboto text-white hidden md:block font-semibold shadow-lg bg-[#9083D5] px-5 py-3 rounded-2xl">Regester</a>
