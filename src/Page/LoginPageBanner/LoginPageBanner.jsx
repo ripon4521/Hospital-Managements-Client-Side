@@ -56,7 +56,7 @@ const LoginPageBanner = () => {
 
       <div   data-aos="fade-left"
           data-aos-offset="300"
-          data-aos-easing="ease-in-sine" className="float-right relative lg:-mt-[800px] z-10">
+          data-aos-easing="ease-in-sine" className="float-right hidden lg:block relative lg:-mt-[800px] z-10">
         <img className="w-[700px]" src={bannerImg} alt="" />
       </div>
 
