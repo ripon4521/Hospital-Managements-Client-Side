@@ -7,6 +7,8 @@ import "aos/dist/aos.css";
 import useAuth from "../../Hooks/useAuth";
 import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
+import AboutUsBanner from "../Services/AboutUsBanner";
+import Footer from "../Footer/Footer";
 
 const Login = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -51,7 +53,7 @@ const Login = () => {
 
   return (
     <section className="">
-      <LoginPageBanner></LoginPageBanner>
+    <AboutUsBanner></AboutUsBanner>
 
       <div
         data-aos="zoom-in"
@@ -273,6 +275,7 @@ const Login = () => {
           </form>
         </div>
       </div>
+      <Footer></Footer>
     </section>
   );
 };

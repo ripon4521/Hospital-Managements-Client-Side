@@ -1,3 +1,4 @@
+import LoginPageBanner from "../LoginPageBanner/LoginPageBanner";
 import AboutUsBanner from "./AboutUsBanner";
 
 
@@ -6,7 +7,7 @@ import AboutUsBanner from "./AboutUsBanner";
 const Aboutus = () => {
     return (
         <div>
-         <AboutUsBanner></AboutUsBanner>
+       <LoginPageBanner></LoginPageBanner>
         </div>
     );
 };

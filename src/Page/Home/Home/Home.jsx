@@ -1,4 +1,5 @@
 
+import Footer from "../../Footer/Footer";
 import Login from "../../Login/Login";
 import Biography from "../Biography/Biography";
 import Contact from "../Contact/Contact";
@@ -14,6 +15,7 @@ const Home = () => {
            <SliderPath></SliderPath>
            <OurDoctors></OurDoctors>
            <Contact></Contact>
+           <Footer></Footer>
            
 
           
