@@ -44,18 +44,21 @@ const SliderPath = () => {
       };
   
     return (
-        <div className="container mx-auto my-20">
-            <Slider {...settings}>
+        <div className="container mx-auto lg:-mt-40 md:-mt-20">
+          <img className="-z-50 -ml-[500px] w-[600px]  relative" src="../../../../../public/Slider/Vector.png" alt="" />
+       <div className="z-50 -mt-[400px] ">
+       <Slider {...settings}>
           
-            <SliderCard></SliderCard>
-            <SliderCard></SliderCard>
-            <SliderCard></SliderCard>
-            <SliderCard></SliderCard>
-            <SliderCard></SliderCard>
-        </Slider>
-          
-   
-         
+          <SliderCard></SliderCard>
+          <SliderCard></SliderCard>
+          <SliderCard></SliderCard>
+          <SliderCard></SliderCard>
+          <SliderCard></SliderCard>
+      </Slider>
+        
+ 
+       
+       </div>
             
         </div>
     );
