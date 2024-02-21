@@ -23,12 +23,12 @@ const LoginPageBanner = () => {
         >
           <motion.h1 initial={{y:'-250'}} animate={{y:0}}
            
-            className=" text-[35px] md:text-[80px] mt-20 md:mt-0 font-roboto font-bold text-[#000]"
+            className=" drop-shadow-md text-[35px] md:text-[80px] mt-20 md:mt-0 font-roboto font-bold text-[#000]"
           >
             We help people to get appointment in online
           </motion.h1>
       
-          <p className="text-xl font-roboto">
+          <p className="text-xl font-roboto drop-shadow-md">
             Lorem Media is a full-service social media agency. We offer
             businesses innovative solutions that deliver the right type of
             audience to you in the most effective strategies possible. We strive
@@ -57,8 +57,8 @@ const LoginPageBanner = () => {
 
       <div   data-aos="fade-left"
           data-aos-offset="300"
-          data-aos-easing="ease-in-sine" className="float-right hidden lg:block relative lg:-mt-[800px] z-10">
-        <img className="w-[700px]" src={bannerImg} alt="" />
+          data-aos-easing="ease-in-sine" className="float-right hidden lg:block relative lg:-mt-[750px]  z-10">
+        <img className="w-[900px]" src={bannerImg} alt="" />
       </div>
 
      

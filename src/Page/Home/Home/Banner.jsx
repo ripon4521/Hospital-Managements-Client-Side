@@ -32,12 +32,12 @@ const Banner = () => {
         >
           <h1
            
-            className=" text-[35px] md:text-[80px] mt-20 md:mt-0 font-roboto font-bold text-[#000]"
+            className="drop-shadow-md text-[35px] md:text-[80px] mt-20 md:mt-0 font-roboto font-bold text-[#000]"
           >
             We help people to get appointment in online
           </h1>
       
-          <p className="text-xl font-roboto">
+          <p className=" drop-shadow-md text-xl font-roboto">
             Lorem Media is a full-service social media agency. We offer
             businesses innovative solutions that deliver the right type of
             audience to you in the most effective strategies possible. We strive
@@ -68,7 +68,7 @@ const Banner = () => {
         style={{ transform: `rotateZ(${rotateDegree}deg)` }}
       />
    <img 
-        src='https://play-lh.googleusercontent.com/FjMBH4Uu3wPVF37aAYt6iQpZWeCKeUtfoQUxAXREqqnp7cQfPx-qvIxqTH_lOfVPSQM=w240-h480-rw'
+        src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdWb66HnpUWyjog34SRSb1Pm0rDGJ0TfsuyQ98PX9xI2OPV9hf3o1KOou779sqzqKXMv0&usqp=CAU'
         alt="Rotating Object"
         className="w-32 h-32 rounded-full hidden lg:block absolute mt-[198px] ml-[600px]  transform rotate-z-90 transition-transform duration-90000"
         style={{ transform: `rotateZ(${rotateDegree}deg)` }}

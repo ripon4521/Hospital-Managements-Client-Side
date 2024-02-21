@@ -1,13 +1,78 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../../public/Logo/Standard Collection 12.png'
 import useAuth from "../../../Hooks/useAuth";
+import { useEffect, useRef, useState } from "react";
 
 
 
 const Navbar = () => {
   const {user}=useAuth();
-  // console.log(user);
 
+
+
+
+
+
+
+
+
+  const dropdownRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  // console.log(user);
+  const profile =  <div className="relative" ref={dropdownRef}>
+  <button
+    className="btn btn-ghost btn-circle avatar"
+    onClick={toggleDropdown}
+    aria-expanded={isOpen}
+  >
+    <div className="w-10 rounded-full">
+      <img
+        alt="Profile"
+        src="https://cdn3.vectorstock.com/i/1000x1000/08/37/profile-icon-male-user-person-avatar-symbol-vector-20910837.jpg"
+        className="img-fluid"
+      />
+    </div>
+  </button>
+  {isOpen && (
+    <div className="absolute top-full right-0 mt-1 p-2 shadow bg-white rounded w-52 z-10">
+      <a href="#" className="block px-4 py-2 hover:bg-gray-100">Profile <span className="badge bg-blue-500 text-white">New</span></a>
+      <a href="#" className="block px-4 py-2 hover:bg-gray-100">Settings</a>
+      <a href="#" className="block px-4 py-2 hover:bg-gray-100">Logout</a>
+    </div>
+  )}
+</div>
 
     const navLink = <div className="flex flex-col p-2 md:p-0 lg:flex-row justify-center items-center gap-10 text-[#000000]">
     <NavLink to='/' className={({ isActive }) =>
@@ -63,7 +128,7 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
     {
-      user? <img className="w-12 lg:mr-20" src="https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png"  /> : <div className=" flex justify-center items-center z-10 gap-5">
+      user? <div>{profile}</div>: <div>
     
       <Link to='/login' className="font-roboto px-5 py-3 rounded-2xl bg-white shadow-lg  font-semibold ">SignIn</Link>
       <a className=" font-roboto text-white hidden md:block font-semibold shadow-lg bg-[#9083D5] px-5 py-3 rounded-2xl">Regester</a>

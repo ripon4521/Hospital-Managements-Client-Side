@@ -23,7 +23,7 @@ const AboutUsBanner = () => {
         >
           <motion.h1 initial={{y:'-250'}} animate={{y:0}}
            
-            className=" text-[35px] md:text-[80px] mt-20 md:mt-0 font-roboto font-bold text-[#000]"
+            className=" drop-shadow-md text-[35px] md:text-[80px] mt-20 md:mt-0 font-roboto font-bold text-[#000]"
           >
             We help people to get appointment in online
           </motion.h1>
