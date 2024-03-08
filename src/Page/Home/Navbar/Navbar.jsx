@@ -2,11 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 import logo from '../../../../public/Logo/Standard Collection 12.png'
 import useAuth from "../../../Hooks/useAuth";
 import { useEffect, useRef, useState } from "react";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Navbar = () => {
-  const {user}=useAuth();
+  const {user, logout}=useAuth();
+  
 
 
 
@@ -38,7 +40,13 @@ const Navbar = () => {
 
 
 
-
+const Sighnout =()=>{
+  logout();
+return   toast.success('Login SuccesFull', {
+  duration: 1000000,
+});
+ 
+}
 
 
 
@@ -67,9 +75,9 @@ const Navbar = () => {
   </button>
   {isOpen && (
     <div className="absolute top-full right-0 mt-1 p-2 shadow bg-white rounded w-52 z-10">
-      <a href="#" className="block px-4 py-2 hover:bg-gray-100">Profile <span className="badge bg-blue-500 text-white">New</span></a>
-      <a href="#" className="block px-4 py-2 hover:bg-gray-100">Settings</a>
-      <a href="#" className="block px-4 py-2 hover:bg-gray-100">Logout</a>
+      <Link  className="block px-4 py-2 hover:bg-gray-100">Profile <span className="badge bg-blue-500 text-white">New</span></Link>
+      <Link  className="block px-4 py-2 hover:bg-gray-100">Settings</Link>
+      <Link onClick={Sighnout} className="block px-4 py-2 hover:bg-gray-100">Logout</Link>
     </div>
   )}
 </div>
@@ -107,6 +115,7 @@ const Navbar = () => {
 
     return (
         <div  className="navbar  z-50 bg-base-100   border fixed">
+          <ToastContainer></ToastContainer>
   <div className="navbar-start  lg:ml-24">
     <div className="dropdown">
 
@@ -126,12 +135,12 @@ const Navbar = () => {
      {navLink}
     </ul>
   </div>
-  <div className="navbar-end">
+  <div className="navbar-end  ">
     {
-      user? <div>{profile}</div>: <div>
+      user? <div>{profile}</div>: <div className="flex lg:mr-10 lg:gap-5">
     
-      <Link to='/login' className="font-roboto px-5 py-3 rounded-2xl bg-white shadow-lg  font-semibold ">SignIn</Link>
-      <a className=" font-roboto text-white hidden md:block font-semibold shadow-lg bg-[#9083D5] px-5 py-3 rounded-2xl">Regester</a>
+      <Link to='/signin' className="font-roboto px-5 py-3 rounded-2xl bg-white shadow-lg  font-semibold ">SignIn</Link>
+      <Link to='/signup'  className=" font-roboto text-white hidden md:block font-semibold shadow-lg bg-[#9083D5] px-5 py-3 rounded-2xl">Regester</Link>
     </div> 
     }
   </div>

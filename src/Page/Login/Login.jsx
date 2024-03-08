@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import AboutUsBanner from "../Services/AboutUsBanner";
 import Footer from "../Footer/Footer";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -45,6 +46,9 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         navigate(from,{replace:true});
+        toast.success('Login SuccesFull', {
+          duration: 1000000,
+        });
       })
       .then((error) => {
         console.log(error);
@@ -54,6 +58,7 @@ const Login = () => {
   return (
     <section className="">
     <AboutUsBanner></AboutUsBanner>
+    <ToastContainer></ToastContainer>
 
       <div
         data-aos="zoom-in"
