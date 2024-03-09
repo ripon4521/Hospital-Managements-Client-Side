@@ -10,6 +10,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import AboutUsBanner from "../Services/AboutUsBanner";
 import Footer from "../Footer/Footer";
 import { ToastContainer, toast } from "react-toastify";
+import { axiosPublic } from "../../Hooks/useAxiosPublic";
 
 const Login = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -34,13 +35,18 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  console.log(activeTab);
 
   const onSubmit = (data) => {
     console.log(data);
     const email = data.email;
     const password = data.password;
-    const role = document.getElementById("role").innerText;
-    console.log(role);
+  
+    console.log(activeTab);
+    const userInfo = {
+      activeTab,
+      data
+    }
 
     createUser(email, password)
       .then((result) => {
@@ -49,6 +55,23 @@ const Login = () => {
         toast.success('Login SuccesFull', {
           duration: 1000000,
         });
+
+        axiosPublic.post('users', userInfo)
+        .then(result=>{
+          console.log(result);
+          alert('Saved Database')
+        })
+        .catch(err=>{
+          console.log(err);
+          alert('Error')
+        })
+
+
+
+
+
+
+
       })
       .then((error) => {
         console.log(error);

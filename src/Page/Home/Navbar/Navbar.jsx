@@ -4,10 +4,16 @@ import useAuth from "../../../Hooks/useAuth";
 import { useEffect, useRef, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useUser from "../../../Hooks/useUser";
 
 
 const Navbar = () => {
   const {user, logout}=useAuth();
+  // console.log(user);
+  const [users]= useUser();
+  // console.log(users?.data);
+  const filter = users.filter(item=>item?.data?.email === user?.email);
+  console.log(filter);
   
 
 
@@ -75,7 +81,7 @@ return   toast.success('Login SuccesFull', {
   </button>
   {isOpen && (
     <div className="absolute top-full right-0 mt-1 p-2 shadow bg-white rounded w-52 z-10">
-      <Link  className="block px-4 py-2 hover:bg-gray-100">Profile <span className="badge bg-blue-500 text-white">New</span></Link>
+      <Link  className="block px-4 py-2 hover:bg-gray-100">{filter[0]?.data?.firstName} <span className="badge bg-blue-500 text-white">{filter[0]?.activeTab}</span></Link>
       <Link  className="block px-4 py-2 hover:bg-gray-100">Settings</Link>
       <Link onClick={Sighnout} className="block px-4 py-2 hover:bg-gray-100">Logout</Link>
     </div>
@@ -83,9 +89,13 @@ return   toast.success('Login SuccesFull', {
 </div>
 
     const navLink = <div className="flex flex-col p-2 md:p-0 lg:flex-row justify-center items-center gap-10 text-[#000000]">
-    <NavLink to='/' className={({ isActive }) =>
+ 
+
+        {
+          filter[0]?.activeTab == 'Admin' ? <div className="flex flex-col p-2 md:p-0 lg:flex-row justify-center items-center gap-10 text-[#000000]">
+             <NavLink to='/' className={({ isActive }) =>
           isActive
-            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200"
+            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200 "
             : " font-roboto text-[18px]  font-semibold  "
         }><a>Home</a></NavLink>
     <NavLink to='/appoinment' className={({ isActive }) =>
@@ -95,20 +105,58 @@ return   toast.success('Login SuccesFull', {
         }><a>Appointment</a></NavLink>
     <NavLink to='/services' className={({ isActive }) =>
           isActive
-            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200"
+            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200 "
             : " font-roboto text-[18px] font-semibold  "
         }><a>Services</a></NavLink>
     <NavLink to='/aboutus' className={({ isActive }) =>
           isActive
-            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200"
+            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200 "
             : " font-roboto text-[18px] font-semibold  "
         }><a>About Us</a></NavLink>
     <NavLink to='contact' className={({ isActive }) =>
           isActive
-            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200"
+            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200 "
             : " font-roboto text-[18px] font-semibold   "
         }><a>Contact Us</a></NavLink>
+          <NavLink to='dashboard' className={({ isActive }) =>
+                 isActive
+                   ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200 ml-10"
+                   : " font-roboto text-[18px] font-semibold   "
+               }><a>Dashboard</a></NavLink>
+          </div>: 
+          
+          
+          <div className="flex flex-col p-2 md:p-0 lg:flex-row justify-center items-center gap-10 text-[#000000]">
+   <NavLink to='/' className={({ isActive }) =>
+          isActive
+            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200 "
+            : " font-roboto text-[18px]  font-semibold  "
+        }><a>Home</a></NavLink>
+    <NavLink to='/appoinment' className={({ isActive }) =>
+          isActive
+            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200"
+            : "font-roboto  text-[18px] font-semibold   "
+        }><a>Appointment</a></NavLink>
+    <NavLink to='/services' className={({ isActive }) =>
+          isActive
+            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200 "
+            : " font-roboto text-[18px] font-semibold  "
+        }><a>Services</a></NavLink>
+    <NavLink to='/aboutus' className={({ isActive }) =>
+          isActive
+            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200 "
+            : " font-roboto text-[18px] font-semibold  "
+        }><a>About Us</a></NavLink>
+    <NavLink to='contact' className={({ isActive }) =>
+          isActive
+            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded bg-blue-200 "
+            : " font-roboto text-[18px] font-semibold   "
+        }><a>Contact Us</a></NavLink>
+   </div>
+
+        }
    
+  
       
 
     </div>
