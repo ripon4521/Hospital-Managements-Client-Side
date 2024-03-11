@@ -1,4 +1,3 @@
-
 import Footer from "../../Footer/Footer";
 import Login from "../../Login/Login";
 import Biography from "../Biography/Biography";
@@ -9,21 +8,16 @@ import Banner from "./Banner";
 import SliderPath from "./Slider/SliderPath";
 
 const Home = () => {
-    return (
-        <div className=" ">
-            <Banner></Banner>
+  return (
+    <div className=" ">
+      <Banner></Banner>
 
-            <Biography></Biography>
-           <SliderPath></SliderPath>
-           <OurDoctors></OurDoctors>
-           <Contact></Contact>
-        
-
-           
-
-          
-        </div>
-    );
+      <Biography></Biography>
+      <SliderPath></SliderPath>
+      <OurDoctors></OurDoctors>
+      <Contact></Contact>
+    </div>
+  );
 };
 
 export default Home;
